@@ -2,8 +2,8 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
-    <title>CYBER_OS // Terminal v10.0</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>CYBER_OS // Terminal v11.0</title>
     <style>
         :root {
             --bg-color: #050811;
@@ -60,8 +60,8 @@
             display: flex;
             flex-direction: column;
             height: 100vh;
-            height: 100dvh; /* Garante altura perfeita em navegadores mobile */
-            padding: 8px;
+            height: 100dvh;
+            padding: 8px 10px 18px 10px; /* Padding inferior aumentado para subir os botões */
         }
 
         .header-bar {
@@ -69,8 +69,8 @@
             justify-content: space-between;
             align-items: center;
             border-bottom: 1px solid var(--main-color);
-            padding-bottom: 6px;
-            margin-bottom: 8px;
+            padding-bottom: 5px;
+            margin-bottom: 6px;
             font-size: 0.75rem;
             text-transform: uppercase;
             flex-shrink: 0;
@@ -82,7 +82,7 @@
             padding-right: 4px;
             scroll-behavior: smooth;
             font-size: 0.9rem;
-            line-height: 1.4;
+            line-height: 1.45;
             word-wrap: break-word;
             overflow-wrap: break-word;
         }
@@ -103,20 +103,25 @@
         .line.warn { color: var(--warn-color); }
         .line.system { color: #888; }
 
+        .bottom-panel {
+            flex-shrink: 0;
+            background: var(--bg-color);
+            border-top: 1px solid rgba(0, 255, 102, 0.3);
+            padding-top: 6px;
+            margin-top: 4px;
+        }
+
         .input-row {
             display: flex;
             align-items: center;
-            border-top: 1px solid #1a2638;
-            padding-top: 6px;
-            margin-top: 4px;
-            flex-shrink: 0;
+            margin-bottom: 6px;
         }
 
         .prompt-symbol {
             color: var(--accent-color);
             margin-right: 6px;
             font-weight: bold;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             white-space: nowrap;
         }
 
@@ -127,23 +132,19 @@
             outline: none;
             color: var(--main-color);
             font-family: var(--font-stack);
-            font-size: 0.85rem;
+            font-size: 0.88rem;
             min-width: 0;
         }
 
-        /* Painel D-Pad Otimizado para Mobile */
+        /* Painel D-Pad Posicionado Mais Para Cima */
         .nav-controls {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
             gap: 6px;
-            margin-top: 8px;
-            padding-top: 6px;
-            border-top: 1px solid rgba(0, 255, 102, 0.2);
-            flex-shrink: 0;
         }
 
         .btn-nav {
-            background: rgba(0, 255, 102, 0.12);
+            background: rgba(0, 255, 102, 0.15);
             border: 1px solid var(--main-color);
             color: var(--main-color);
             padding: 12px 0;
@@ -151,21 +152,23 @@
             font-size: 1.1rem;
             font-weight: bold;
             cursor: pointer;
-            border-radius: 4px;
+            border-radius: 5px;
             transition: background 0.15s;
             display: flex;
             justify-content: center;
             align-items: center;
             touch-action: manipulation;
+            box-shadow: 0 0 8px rgba(0, 255, 102, 0.15);
         }
 
         .btn-nav.btn-enter {
             grid-column: span 2;
-            background: rgba(0, 210, 255, 0.2);
+            background: rgba(0, 210, 255, 0.25);
             border-color: var(--accent-color);
             color: var(--accent-color);
             font-size: 0.85rem;
             letter-spacing: 0.5px;
+            box-shadow: 0 0 8px rgba(0, 210, 255, 0.2);
         }
 
         .btn-nav:active {
@@ -227,26 +230,22 @@
             100% { transform: scale(1.03); }
         }
 
-        /* Ajustes específicos para telas menores (smartphones) */
         @media (max-width: 480px) {
+            .app-container {
+                padding-bottom: 24px; /* Eleva os controles acima das barras do navegador mobile */
+            }
             .terminal-window {
-                font-size: 0.82rem;
+                font-size: 0.85rem;
             }
             .header-bar {
                 font-size: 0.68rem;
             }
             .btn-nav {
-                padding: 10px 0;
-                font-size: 1rem;
+                padding: 11px 0;
+                font-size: 1.05rem;
             }
             .btn-nav.btn-enter {
-                font-size: 0.75rem;
-            }
-            .win-title {
-                font-size: 1.5rem;
-            }
-            .win-text {
-                font-size: 0.85rem;
+                font-size: 0.78rem;
             }
         }
     </style>
@@ -265,16 +264,18 @@
 
         <div class="terminal-window" id="terminal-out"></div>
 
-        <div class="input-row">
-            <span class="prompt-symbol">guest@cyber-os:~$</span>
-            <input type="text" class="cmd-input" id="terminal-in" autocomplete="off" spellcheck="false" placeholder="Use ▲ / ▼ para navegar..." readonly>
-        </div>
+        <div class="bottom-panel">
+            <div class="input-row">
+                <span class="prompt-symbol">guest@cyber-os:~$</span>
+                <input type="text" class="cmd-input" id="terminal-in" autocomplete="off" spellcheck="false" placeholder="Use ▲ / ▼ para navegar..." readonly>
+            </div>
 
-        <div class="nav-controls">
-            <button class="btn-nav" onclick="FileSelector.navigate(-1)"><span class="icon-symbol">▲</span></button>
-            <button class="btn-nav" onclick="FileSelector.navigate(1)"><span class="icon-symbol">▼</span></button>
-            <button class="btn-nav" onclick="FileSelector.quickScan()">SCAN</button>
-            <button class="btn-nav btn-enter" onclick="FileSelector.selectCurrent()">ABRIR <span class="icon-symbol">↵</span></button>
+            <div class="nav-controls">
+                <button class="btn-nav" onclick="FileSelector.navigate(-1)"><span class="icon-symbol">▲</span></button>
+                <button class="btn-nav" onclick="FileSelector.navigate(1)"><span class="icon-symbol">▼</span></button>
+                <button class="btn-nav" onclick="FileSelector.quickScan()">SCAN</button>
+                <button class="btn-nav btn-enter" onclick="FileSelector.selectCurrent()">ABRIR <span class="icon-symbol">↵</span></button>
+            </div>
         </div>
     </div>
 
@@ -364,7 +365,7 @@
                 'home': {
                     'instrucoes.txt': '[ORIENTAÇÃO INICIAL]: O alvo investigado atende pelo nome DANIEL. Use as setas para inspecionar os relatórios de rede e decifre "senhas.hash" para liberar o arquivo final.',
                     'perfil_daniel.pdf': '[DOSSIÊ TÉCNICO - CONFIDENCIAL]\nSUSPEITO: Daniel\nATUAÇÃO: Desenvolvedor de Software e Especialista em Interface Cyberpunk.\nATIVIDADES RECENTES: Criação de estruturas em Python/CustomTkinter, frameworks de jogos, animações web em HTML/CSS e simulações avançadas em JavaScript.\nSTATUS: Monitorado via protocolo de rede local.',
-                    'projetos_web.log': '[LOG DE PROJETOS DANIEL]\n> Módulo Python UI: CustomTkinter Neon\n> Sistema RPG em Portugol/Python\n> Animações Pixel-Art em Keyframes\n> Simulador Terminal CYBER_OS v10.0',
+                    'projetos_web.log': '[LOG DE PROJETOS DANIEL]\n> Módulo Python UI: CustomTkinter Neon\n> Sistema RPG em Portugol/Python\n> Animações Pixel-Art em Keyframes\n> Simulador Terminal CYBER_OS v11.0',
                     'senhas.hash': '[HASH CRIPTOGRÁFICO]: 0x89F4A12BC\nUse o comando DECRYPT neste arquivo para liberar a chave mestre do servidor.',
                     'redes_conectadas.net': '[LOG DE IP]: Conexão estabelecida a partir do terminal remoto de Daniel [192.168.0.99]. Porta de segurança 8080.',
                     'operacao_secreta.dat': '[EVIDÊNCIA MÁXIMA ENCONTRADA]'
