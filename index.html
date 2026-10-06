@@ -280,14 +280,14 @@
     </div>
 
     <div class="win-overlay" id="win-screen">
-        <h1 class="win-title">🎉 VOCÊ ENCONTROU O DANIEL! 🎉</h1>
+        <h1 class="win-title">🎉 ME ACHARAM, AFF CARA 🎉</h1>
         <div class="win-text">
             <h2>MISSÃO CONCLUÍDA!</h2><br>
-            <p>Você decifrou a chave RSA, analisou o arquivo confidencial e descobriu todos os registros do suspeito a tempo!</p><br>
+            <p>PELO MENOS ACHARAM ESSA DESGRAÇA DE CHAVE DE ACESSO.</p><br>
             <hr style="border-color: #00ff66;"><br>
-            <h1 style="color: #00d2ff; font-size: 1.4rem;">🤣 MAS ERA TUDO UMA TROLAGEM! 🤣</h1><br>
-            <p>Seu celular está 100% seguro! O Daniel não é nenhum cibercriminoso e nenhum arquivo do seu aparelho foi invadido.</p><br>
-            <p>Isso foi apenas um simulador interativo em código feito para testar sua agilidade! 📱😜</p>
+            <h1 style="color: #00d2ff; font-size: 1.4rem;">🤣 EU NUM VOU PRA FACUDADE DESGRAÇA 🤣</h1><br>
+            <p>Só não invado o sistema do celular das daus porque tenho preguiça mesmo.</p><br>
+            <p>SUAS BANDINDINHAS, TOMA NO CU VOCÊs DUAS.📱😜</p>
         </div>
     </div>
 
@@ -364,8 +364,8 @@
             static structure = {
                 'home': {
                     'instrucoes.txt': '[ORIENTAÇÃO INICIAL]: O alvo investigado atende pelo nome DANIEL. Use as setas para inspecionar os relatórios de rede e decifre "senhas.hash" para liberar o arquivo final.',
-                    'perfil_daniel.pdf': '[DOSSIÊ TÉCNICO - CONFIDENCIAL]\nSUSPEITO: Daniel\nATUAÇÃO: Desenvolvedor de Software e Especialista em Interface Cyberpunk.\nATIVIDADES RECENTES: Criação de estruturas em Python/CustomTkinter, frameworks de jogos, animações web em HTML/CSS e simulações avançadas em JavaScript.\nSTATUS: Monitorado via protocolo de rede local.',
-                    'projetos_web.log': '[LOG DE PROJETOS DANIEL]\n> Módulo Python UI: CustomTkinter Neon\n> Sistema RPG em Portugol/Python\n> Animações Pixel-Art em Keyframes\n> Simulador Terminal CYBER_OS v11.0',
+                    'perfil_daniel.pdf': '[DOSSIÊ TÉCNICO - CONFIDENCIAL]\nSUSPEITO: Daniel\nATUAÇÃO: Indignado por ser orbigado a ir paa a faculdade.\nATIVIDADES RECENTES: Xingando profundamente vocês duas se fude\nSTATUS: RAIVA.',
+                    'projetos_web.log': '[LOG DE PROJETOS DANIEL]\n> Vai toma no cu My\n> Vai toma no cu Didi\n> A mas vão toma no cu vocês duas caraí,
                     'senhas.hash': '[HASH CRIPTOGRÁFICO]: 0x89F4A12BC\nUse o comando DECRYPT neste arquivo para liberar a chave mestre do servidor.',
                     'redes_conectadas.net': '[LOG DE IP]: Conexão estabelecida a partir do terminal remoto de Daniel [192.168.0.99]. Porta de segurança 8080.',
                     'operacao_secreta.dat': '[EVIDÊNCIA MÁXIMA ENCONTRADA]'
@@ -422,7 +422,7 @@
         }
 
         class MissionTimer {
-            static tempoRestante = 300;
+            static tempoRestante = 120;
             static timerInterval = null;
             static missaoAtiva = true;
 
@@ -441,8 +441,8 @@
 
                     document.getElementById('clock-display').innerText = `CRONO: ${formatoTempo}`;
 
-                    if (this.tempoRestante === 60) {
-                        CommandProcessor.print('⚠️ ALERTA: Resta 1 minuto! Sinal do suspeito Daniel sendo bloqueado!', 'warn');
+                    if (this.tempoRestante === 30) {
+                        CommandProcessor.print('⚠️ ALERTA: Resta 30 segundos! Sinal do suspeito Daniel sendo bloqueado!', 'warn');
                         AudioFX.playBeep(900, 'sawtooth', 0.2);
                     }
 
@@ -463,8 +463,8 @@
                 CommandProcessor.print('========================================', 'warn');
 
                 setTimeout(() => {
-                    CommandProcessor.print('🤣 CALMA, É UMA TROLAGEM! 🤣', 'info');
-                    CommandProcessor.print('O tempo acabou, mas seu celular está 100% seguro! 📱😜', 'info');
+                    CommandProcessor.print('🤣Vão vocês duas toma no cu🤣', 'info');
+                    CommandProcessor.print('Vou pra essa porra ai ma nein fudendo se fude 📱😜', 'info');
                 }, 2000);
             }
 
@@ -530,7 +530,7 @@
                                     if (this.chaveRevelada) {
                                         MissionTimer.concluirMissao();
                                     } else {
-                                        this.print('⚠️ AVISO: Acesso Negado! Use DECRYPT no arquivo senhas.hash para liberar a chave!', 'warn');
+                                        this.print('⚠️ AVISO: Acesso Negado!', 'warn');
                                     }
                                 }
                             } else {
@@ -553,7 +553,7 @@
                                     this.chaveRevelada = true;
                                     this.print('[SUCESSO] Hash Decodificado!', 'info');
                                     this.print('ACESSO AUTORIZADO PARA: "operacao_secreta.dat"', 'info');
-                                    this.print('Selecione "operacao_secreta.dat" com as setas e pressione ABRIR!', 'system');
+                                    this.print('Selecione "operacao_secreta.dat"!', 'system');
                                 }
                             }, 300);
                         } else {
@@ -586,7 +586,7 @@
             CommandProcessor.print('====================================', 'info');
             CommandProcessor.print('   CYBER_OS // INVESTIGAÇÃO: DANIEL', 'info');
             CommandProcessor.print('====================================', 'info');
-            CommandProcessor.print('⚠️ Alvo localizado: Daniel. Você tem 5 minutos para investigar os arquivos!');
+            CommandProcessor.print('⚠️ Alvo localizado: Daniel. Você tem 2 minutos para investigar os arquivos!');
             CommandProcessor.print('Use as setas (▲ / ▼) para selecionar os itens e aperte ABRIR ↵.');
             CommandProcessor.print('------------------------------------');
 
