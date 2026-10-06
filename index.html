@@ -61,7 +61,7 @@
             flex-direction: column;
             height: 100vh;
             height: 100dvh;
-            padding: 8px 10px 18px 10px; /* Padding inferior aumentado para subir os botões */
+            padding: 8px 10px 18px 10px;
         }
 
         .header-bar {
@@ -136,7 +136,6 @@
             min-width: 0;
         }
 
-        /* Painel D-Pad Posicionado Mais Para Cima */
         .nav-controls {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
@@ -186,7 +185,6 @@
             font-weight: bold;
         }
 
-        /* Modal da mensagem final */
         .win-overlay {
             display: none;
             position: fixed;
@@ -232,7 +230,7 @@
 
         @media (max-width: 480px) {
             .app-container {
-                padding-bottom: 24px; /* Eleva os controles acima das barras do navegador mobile */
+                padding-bottom: 24px;
             }
             .terminal-window {
                 font-size: 0.85rem;
@@ -258,7 +256,7 @@
     <div class="app-container">
         <div class="header-bar">
             <span>SYS_ID: CYBER-809</span>
-            <span id="clock-display" style="color: #00d2ff; font-weight: bold;">CRONO: 05:00</span>
+            <span id="clock-display" style="color: #00d2ff; font-weight: bold;">CRONO: 02:00</span>
             <span id="status-tag">ONLINE</span>
         </div>
 
@@ -285,9 +283,9 @@
             <h2>MISSÃO CONCLUÍDA!</h2><br>
             <p>PELO MENOS ACHARAM ESSA DESGRAÇA DE CHAVE DE ACESSO.</p><br>
             <hr style="border-color: #00ff66;"><br>
-            <h1 style="color: #00d2ff; font-size: 1.4rem;">🤣 EU NUM VOU PRA FACUDADE DESGRAÇA 🤣</h1><br>
-            <p>Só não invado o sistema do celular das daus porque tenho preguiça mesmo.</p><br>
-            <p>SUAS BANDINDINHAS, TOMA NO CU VOCÊs DUAS.📱😜</p>
+            <h1 style="color: #00d2ff; font-size: 1.4rem;">🤣 EU NUM VOU PRA FACULDADE DESGRAÇA 🤣</h1><br>
+            <p>Só não invado o sistema do celular das duas porque tenho preguiça mesmo.</p><br>
+            <p>SUAS BANDINDINHAS, TOMA NO CU VOCÊS DUAS.📱😜</p>
         </div>
     </div>
 
@@ -364,7 +362,7 @@
             static structure = {
                 'home': {
                     'instrucoes.txt': '[ORIENTAÇÃO INICIAL]: O alvo investigado atende pelo nome DANIEL. Use as setas para inspecionar os relatórios de rede e decifre "senhas.hash" para liberar o arquivo final.',
-                    'perfil_daniel.pdf': '[DOSSIÊ TÉCNICO - CONFIDENCIAL]\nSUSPEITO: Daniel\nATUAÇÃO: Indignado por ser orbigado a ir paa a faculdade.\nATIVIDADES RECENTES: Xingando profundamente vocês duas se fude\nSTATUS: RAIVA.',
+                    'perfil_daniel.pdf': '[DOSSIÊ TÉCNICO - CONFIDENCIAL]\nSUSPEITO: Daniel\nATUAÇÃO: Indignado por ser obrigado a ir para a faculdade.\nATIVIDADES RECENTES: Xingando profundamente vocês duas se fude\nSTATUS: RAIVA.',
                     'projetos_web.log': '[LOG DE PROJETOS DANIEL]\n> Vai toma no cu My\n> Vai toma no cu Didi\n> A mas vão toma no cu vocês duas caraí',
                     'senhas.hash': '[HASH CRIPTOGRÁFICO]: 0x89F4A12BC\nUse o comando DECRYPT neste arquivo para liberar a chave mestre do servidor.',
                     'redes_conectadas.net': '[LOG DE IP]: Conexão estabelecida a partir do terminal remoto de Daniel [192.168.0.99]. Porta de segurança 8080.',
@@ -442,7 +440,7 @@
                     document.getElementById('clock-display').innerText = `CRONO: ${formatoTempo}`;
 
                     if (this.tempoRestante === 30) {
-                        CommandProcessor.print('⚠️ ALERTA: Resta 30 segundos! Sinal do suspeito Daniel sendo bloqueado!', 'warn');
+                        CommandProcessor.print('⚠️ ALERTA: Restam 30 segundos! Sinal do suspeito Daniel sendo bloqueado!', 'warn');
                         AudioFX.playBeep(900, 'sawtooth', 0.2);
                     }
 
@@ -464,7 +462,7 @@
 
                 setTimeout(() => {
                     CommandProcessor.print('🤣Vão vocês duas toma no cu🤣', 'info');
-                    CommandProcessor.print('Vou pra essa porra ai ma nein fudendo se fude 📱😜', 'info');
+                    CommandProcessor.print('Vou pra essa porra aí nem fudendo se fude 📱😜', 'info');
                 }, 2000);
             }
 
